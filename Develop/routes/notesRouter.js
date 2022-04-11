@@ -5,7 +5,7 @@ const uuid = require("../helpers/uuid");
 
 notes.get('/', (req, res) => {
     console.info(`${req.method} request received for notes`);
-    readFromFile('./db/feedback.json').then((data) => res.json(JSON.parse(data)));
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 notes.post('/', (req, res) => {
