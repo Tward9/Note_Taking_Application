@@ -11,9 +11,9 @@ notes.get('/', (req, res) => {
 notes.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
-    const {noteText, noteTitle} = req.body;
+    const { noteText, noteTitle } = req.body;
     if (noteText && noteTitle) {
-        
+
         const newNote = {
             noteText,
             noteTitle,
@@ -28,6 +28,11 @@ notes.post('/', (req, res) => {
     } else {
         res.json('Error in Saving Note');
     }
+});
+
+notes.delete('/:id', (req, res) => {
+    console.info(`${req.method} request received to delete a note`);
+    //something
 });
 
 module.exports = notes;
