@@ -31,6 +31,11 @@ notes.post('/', (req, res) => {
     }
 });
 
+notes.get('/:id', (req, res) => {
+    console.info(`${req.method} request received to show a specfic note`);
+
+});
+
 notes.delete('/:id', (req, res) => {
     console.info(`${req.method} request received to delete a note`);
     //something
