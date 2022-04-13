@@ -18,7 +18,7 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuid(),
+            id: uuid(),
         };
         readAndAppend(newNote, './db/db.json');
         const response = {
@@ -31,13 +31,13 @@ notes.post('/', (req, res) => {
     }
 });
 
-notes.get('/:note_id', (req, res) => {
+notes.get('/:id', (req, res) => {
     if (req.params.note_id) {
         console.info(`${req.method} request received to show a specfic note`);
-        const noteID = req.params.note_id;
+        const noteID = req.params.id;
         for (let i = 0; i < db.length; i++) {
             const currentNote = db[i];
-            if (currentNote.note_id === noteID) {
+            if (currentNote.id === noteID) {
                 res.json(currentNote);
                 return;
             };
@@ -48,14 +48,14 @@ notes.get('/:note_id', (req, res) => {
     };
 });
 
-notes.delete('/:note_id', (req, res) => {
+notes.delete('/:id', (req, res) => {
     //something
-    if (req.params.note_id) {
+    if (req.params.id) {
         console.info(`${req.method} request received to delete a note`);
-        const noteID = req.params.note_id;
+        const noteID = req.params.id;
         for (let i = 0; i < db.length; i++) {
             const currentNote = db[i];
-            if (currentNote.note_id === noteID) {
+            if (currentNote.id === noteID) {
                 db.splice(i, 1);
                 writeToFile('./db/db.json', db);
                 res.json(db);

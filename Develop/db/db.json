@@ -1,21 +1,22 @@
 [
     {
         "title": "Test Title",
-        "text": "Test text"
+        "text": "Test text",
+        "id": "4h2p"
     },
     {
         "title": "new note",
         "text": "another note test",
-        "note_id": "577d"
+        "id": "577d"
     },
     {
         "title": "POST Test 2",
         "text": "This is a test POST 2",
-        "note_id": "fc1c"
+        "id": "fc1c"
     },
     {
         "title": "saving from browser",
         "text": "save save blah blah",
-        "note_id": "188f"
+        "id": "188f"
     }
 ]
