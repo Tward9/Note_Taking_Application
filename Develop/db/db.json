@@ -13,15 +13,5 @@
         "title": "POST Test 2",
         "text": "This is a test POST 2",
         "note_id": "fc1c"
-    },
-    {
-        "title": "saving from browser",
-        "text": "save save blah blah",
-        "note_id": "188f"
-    },
-    {
-        "title": "new browser note",
-        "text": "this is a browser note",
-        "note_id": "c3c0"
     }
 ]
