@@ -2,21 +2,26 @@
     {
         "title": "Test Title",
         "text": "Test text",
-        "id": "4h2p"
+        "note_id": "4h2p"
     },
     {
         "title": "new note",
         "text": "another note test",
-        "id": "577d"
+        "note_id": "577d"
     },
     {
         "title": "POST Test 2",
         "text": "This is a test POST 2",
-        "id": "fc1c"
+        "note_id": "fc1c"
     },
     {
         "title": "saving from browser",
         "text": "save save blah blah",
-        "id": "188f"
+        "note_id": "188f"
+    },
+    {
+        "title": "new browser note",
+        "text": "this is a browser note",
+        "note_id": "c3c0"
     }
 ]
