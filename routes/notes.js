@@ -1,8 +1,8 @@
 const express = require('express');
 const notes = express.Router();
-const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
-const uuid = require("../helpers/uuid");
-const db = require('../db/db.json')
+const { readFromFile, readAndAppend, writeToFile } = require('/helpers/fsUtils');
+const uuid = require("/helpers/uuid");
+const db = require('/db/db.json');
 
 notes.get('/', (req, res) => {
     console.info(`${req.method} request received for notes`);
@@ -57,7 +57,7 @@ notes.delete('/:note_id', (req, res) => {
             const currentNote = db[i];
             if (currentNote.note_id === noteID) {
                 db.splice(i, 1);
-                writeToFile('./db/db.json', db);
+                writeToFile('/db/db.json', db);
                 res.json(db);
                 return;
             };
