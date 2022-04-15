@@ -2,7 +2,8 @@ const express = require('express');
 const notes = express.Router();
 const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const uuid = require("../helpers/uuid");
-const db = require('../db/db.json');
+let db = require('../db/db.json');
+const { info } = require('console');
 
 notes.get('/', (req, res) => {
     console.info(`${req.method} request received for notes`);
@@ -47,21 +48,29 @@ notes.get('/:note_id', (req, res) => {
         res.status(400).send('Note ID not provided');
     };
 });
-
+let newDB = [];
+//look at filter method
 notes.delete('/:note_id', (req, res) => {
     //something
     if (req.params.note_id) {
         console.info(`${req.method} request received to delete a note`);
         const noteID = req.params.note_id;
-        for (let i = 0; i < db.length; i++) {
-            const currentNote = db[i];
-            if (currentNote.note_id === noteID) {
-                db.splice(i, 1);
-                writeToFile('./db/db.json', db);
-                res.json(db);
-                return;
-            };
-        };
+        newDB = db.filter(note => note.note_id !== noteID)
+        console.info(db);
+        console.info(newDB);
+        writeToFile('./db/db.json', newDB);
+        res.json(db);
+        return;
+        // for (let i = 0; i < db.length; i++) {
+        //     const currentNote = db[i];
+        //     if (currentNote.note_id === noteID) {
+        //         db = db.filter(note => note.note_id !== noteID)
+        //         res.json(db);
+        //         return;
+        //     };
+        //     console.info(db);
+        // };
+        // writeToFile('./db/db.json', db);
         res.status(404).send('Note not found');
     } else {
         res.status(400).send('Note ID not provided');
